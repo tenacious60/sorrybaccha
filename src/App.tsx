@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import FallingPieces from './components/FallingShapes';
+// Import audio assets so Vite includes them in the build (resolves to URLs)
+import specialSong from '../songs/special-song.mp3';
+import m01 from '../songs/m01.mp3';
+import m04 from '../songs/m04.mp3';
+import m05 from '../songs/m05.mp3';
+import m06 from '../songs/m06.mp3';
+import m07 from '../songs/m07.mp3';
+import m09 from '../songs/m09.mp3';
 
 // प्रकार
 interface Song {
@@ -35,37 +43,37 @@ const App: React.FC = () => {
     { 
       title: 'हमारा बाबू सोना करेजा ',
       artist: 'साथ हमेशा के लिए',
-      src: './songs/special-song.mp3'
+      src: specialSong
     },
     { 
       title: 'हमारा गाना',
       artist: 'साथ हमेशा के लिए',
-      src: './songs/m01.mp3'
+      src: m01
     },
     { 
       title: 'हमारा गाना', 
       artist: 'साथ हमेशा के लिए',
-      src: './songs/m04.mp3'
+      src: m04
     },
     { 
       title: 'हमेशा तुम्हारा', 
       artist: 'दिल की धड़कन',
-      src: './songs/m05.mp3'
+      src: m05
     },
     { 
       title: 'हमेशा तुम्हारा', 
       artist: 'दिल की धड़कन',
-      src: './songs/m06.mp3'
+      src: m06
     },
     { 
       title: 'हमेशा तुम्हारा', 
       artist: 'दिल की धड़कन',
-      src: './songs/m07.mp3'
+      src: m07
     },
     { 
       title: 'हमेशा तुम्हारा', 
       artist: 'दिल की धड़कन',
-      src: './songs/m09.mp3'
+      src: m09
     }
   ];
 
