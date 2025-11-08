@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes icon-glow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+.animate-icon-glow {
+  animation: icon-glow 2s ease-in-out infinite;
+}
+
+/* Small text glow utility (used for subtle glowing labels) */
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 8px #94a3b8, 0 0 16px #94a3b8, 0 0 24px #94a3b8;
+    }
+    50% {
+      text-shadow: 0 0 16px #cbd5e1, 0 0 32px #cbd5e1, 0 0 48px #cbd5e1;
+    }
+  }
+  .glow-text {
+    animation: glow 2s ease-in-out infinite;
+  }
