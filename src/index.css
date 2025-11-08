@@ -1,66 +1,106 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
 
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.3;
-  }
-
-  50% {
-    transform: translateY(-10px) rotate(180deg);
-    opacity: 0.1;
-  }
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
-@keyframes heartbeat {
+.candle-flame {
+  background: radial-gradient(circle, rgba(255, 220, 100, 1) 0%, rgba(255, 150, 50, 0.8) 50%, rgba(255, 100, 30, 0) 100%);
+  filter: drop-shadow(0 0 20px rgba(255, 200, 100, 0.8));
+  animation: flicker 2s ease-in-out infinite;
+}
+
+/* Falling decorations animation */
+.falling-emoji {
+  display: inline-block;
+  animation-name: fall-and-rotate;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  will-change: transform, opacity;
+}
+
+@keyframes fall-and-rotate {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0.95; }
+}
+
+@keyframes flicker {
 
   0%,
   100% {
     transform: scale(1);
+    opacity: 1;
   }
 
   50% {
     transform: scale(1.05);
+    opacity: 0.9;
   }
 }
 
-@keyframes icon-glow {
-
-  0%,
-  100% {
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .mobile-stack {
+    flex-direction: column;
   }
 
-  50% {
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+  .mobile-text-center {
+    text-align: center;
+  }
+
+  .mobile-p-4 {
+    padding: 1rem;
+  }
+
+  .mobile-text-lg {
+    font-size: 1.125rem;
+  }
+
+  .mobile-text-xl {
+    font-size: 1.25rem;
+  }
+
+  .mobile-gap-4 {
+    gap: 1rem;
+  }
+
+  .mobile-mb-4 {
+    margin-bottom: 1rem;
   }
 }
 
-.animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
-.animate-heartbeat {
-  animation: heartbeat 3s ease-in-out infinite;
-}
-
-.animate-icon-glow {
-  animation: icon-glow 2s ease-in-out infinite;
-}
-
-/* Small text glow utility (used for subtle glowing labels) */
-  @keyframes glow {
-    0%, 100% {
-      text-shadow: 0 0 8px #94a3b8, 0 0 16px #94a3b8, 0 0 24px #94a3b8;
-    }
-    50% {
-      text-shadow: 0 0 16px #cbd5e1, 0 0 32px #cbd5e1, 0 0 48px #cbd5e1;
-    }
+  /* Falling shapes (hearts, roses, rings, colors) */
+  .falling-shape {
+    position: absolute;
+    top: -12vh;
+    will-change: transform, opacity;
+    opacity: 0.95;
+    animation-name: fall-rotate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
   }
-  .glow-text {
-    animation: glow 2s ease-in-out infinite;
+
+  @keyframes fall-rotate {
+    0% { transform: translateY(-12vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(120vh) rotate(360deg); opacity: 0.9; }
+  }
+
+  /* Make central images scale nicely with device */
+  .responsive-img {
+    width: 100%;
+    height: auto;
+    max-height: 55vh;
+    object-fit: cover;
+  }
+
+  /* Small helper for clickable forgive text if present */
+  .forgive-click {
+    cursor: pointer;
+    user-select: none;
   }
